@@ -28,7 +28,7 @@ html {
     /*
      min-height: -webkit-fill-available;
      */
-
+    scroll-behavior: smooth;
  }
 
 main {
@@ -37,6 +37,10 @@ main {
 
 a {
     text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
 }
 
 .container {
@@ -563,7 +567,6 @@ a {
     justify-content: center;
     list-style-type: none;
     align-items: center;
-    list-style-type: none;
     width: 100%;
     gap: 46.5%;
 }
