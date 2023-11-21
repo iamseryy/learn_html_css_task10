@@ -88,6 +88,7 @@ ul {
 .header__nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 33px;
     font-size: 30px;
     margin-right: 12px;
@@ -383,6 +384,7 @@ ul {
     align-items: center;
     list-style-type: none;
     margin: 0 230px 0;
+    padding-left: 0;
 }
 
 .footer-top-feature-section {
@@ -610,7 +612,11 @@ ul {
 }
 
 
-@media(min-width: 1024px) and (max-width: 1150px){
+@media(min-width: 1024px) and (max-width: 1160px){
+    .main-top-subtitle {
+        font-size: 30px;
+    }
+
     .main-categories {
         margin: 0 2% 65px;
     }
