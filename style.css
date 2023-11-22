@@ -274,13 +274,18 @@ ul {
 
 .popular-items {
     max-width: calc(var(--width-container) - 400px);
-    padding: 0 0% 0%;
+    padding: 0 0 0;
     display: grid;
     justify-content: center;
     grid-template-columns: 30% 30% 30%;
     grid-template-rows: 48% 48% 48%;
     margin-bottom: 48px;
     gap: 30px;
+}
+
+.popular-items1 {
+    display: flex;
+    gap: 20px
 }
 
 .item {
@@ -730,7 +735,7 @@ ul {
     .popular-items {
         display: grid;
         grid-template-columns: 360px 360px;
-        grid-template-rows: 581px 581px 581px;
+        grid-template-rows: 600px 600px 600px;
         gap: 16px;
     }
 
