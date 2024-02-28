@@ -1,5 +1,5 @@
 function buildFeaturedItems(featuredItems) {
-    const cartItems = []
+    const cartItems = new Map()
     const itemsSectionEl = document.querySelector('.main_items_section')
     const itemsListEl = document.createElement('ul')
 
@@ -49,7 +49,7 @@ function buildFeaturedItems(featuredItems) {
         itemsListEl.appendChild(itemEl)
 
         cartBoxEl.addEventListener('click', event => {
-            cartItems.push(item)
+            cartItems.set(item, cartItems.has(item) ? cartItems.get(item) + 1 : 1)
             document.querySelector('.cart-box').innerHTML = ''
             buildCartItems(cartItems)
         })
@@ -69,7 +69,7 @@ function buildCartItems(cartItems) {
     cartItemsBoxEl.appendChild(cartItemsTitleEl)
     cartItemsBoxEl.appendChild(cartItemsListEl)
 
-    cartItems.forEach(item => {
+    cartItems.forEach((amount, item) => {
         const itemEl = document.createElement('li')
         const productLinkEl= document.createElement('a')
         const itemImgEl = document.createElement('img')
@@ -121,7 +121,7 @@ function buildCartItems(cartItems) {
         itemValueSizeEl.textContent = ' ' + item.size
         itemValueQuantityEl.type = 'number'
         itemValueQuantityEl.min = '1'
-        itemValueQuantityEl.value = '1'
+        itemValueQuantityEl.value = amount
         itemDeleteSvgEl.setAttribute('fill', 'none');
         itemDeleteSvgEl.setAttribute('viewBox', '0 0 18 18');
         itemDeleteSvgEl.setAttribute('width', '18');
@@ -152,12 +152,11 @@ function buildCartItems(cartItems) {
         cartItemsListEl.appendChild(itemEl)
 
         itemDeleteEl.addEventListener('click', event => {
-            cartItems.pop()
-            if (cartItems.length === 0) document.querySelector('.cart-box').innerHTML = ''
+            cartItems.delete(item)
+            if (cartItems.size === 0) document.querySelector('.cart-box').innerHTML = ''
             itemEl.remove()
         })
     })
-
 }
 
 buildFeaturedItems(JSON.parse(data))
